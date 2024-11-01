@@ -1,8 +1,8 @@
 ---
 import type { GetStaticPaths } from "astro";
 import MainLayout from "../../layouts/MainLayout.astro";
-import PokemonCard from "../../pokemons/PokemonCard.astro";
 import type { PokemonListResponse } from "../../interfaces/pokemon-list.response";
+import PokemonCard from "../../components/pokemons/PokemonCard.astro";
 
 export const getStaticPaths = (async () => {
   const resp = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
@@ -44,7 +44,7 @@ const audioSrc = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pok
       <h1 class="text-5xl capitalize">{name}</h1>
     </div>
 
-    <PokemonCard name={name} url={url} />
+    <PokemonCard name={name} url={url} isBig />
 
     <audio controls class="mt-5">
       <source src={audioSrc} type="audio/ogg" />
