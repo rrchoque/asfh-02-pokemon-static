@@ -1,4 +1,5 @@
 ---
+import NavBar from "@components/pokemons/shared/NavBar.astro";
 import { siteInfo } from "@consts/site-info";
 import { ViewTransitions } from "astro:transitions";
 
@@ -42,6 +43,9 @@ const {
     </style> -->
   </head>
   <body class="bg-slate-800 text-slate-100 m-auto max-w-3xl">
-    <slot />
+    <NavBar />
+    <main class="mt-10">
+      <slot />
+    </main>
   </body>
 </html>
