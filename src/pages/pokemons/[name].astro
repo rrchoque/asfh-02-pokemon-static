@@ -52,7 +52,12 @@ const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprit
         <Title>{name}</Title>
       </div>
 
-      <button id="btn-favorite" class="ml-4" data-name={name} data-id={id}>
+      <button
+        id="btn-favorite"
+        class="ml-4 text-pink-800"
+        data-name={name}
+        data-id={id}
+      >
         <Icon data-outline name="heart-outline" size={50} />
         <Icon data-full class="hidden" name="heart-full" size={50} />
       </button>
@@ -110,6 +115,14 @@ const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprit
     ) as HTMLElement;
 
     const heartFull = btnFavorite.querySelector("[data-full]") as HTMLElement;
+
+    // Hagan la función para mostrar o ocultar el corazón lleno
+    const isFavorite = favoritePokemons.some((fav) => fav.name === name);
+
+    if (isFavorite) {
+      heartOutline.classList.add("hidden");
+      heartFull.classList.remove("hidden");
+    }
 
     const toggleFavorite = () => {
       const isFavorite = favoritePokemons.some((fav) => fav.name === name);
