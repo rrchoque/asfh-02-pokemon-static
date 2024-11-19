@@ -10,6 +10,7 @@ export const Counter: Component<Props> = (props) => {
 
   return (
     <>
+      {props.children}
       <h3 class="text-xl">Value: {counter()}</h3>
 
       <button
